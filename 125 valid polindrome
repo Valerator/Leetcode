@@ -1,0 +1,19 @@
+//A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+//Given a string s, return true if it is a palindrome, or false otherwise.
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string p;
+        for(auto& i: s) { //пробегаемся по всей строке
+            if(isdigit(i)) { //проверка является ли элемент цифрой
+                p.push_back(i);
+            } else if(isalpha(i)) { //проыерка является ли элемент буквой
+                p.push_back(tolower(i)); //делаем букву прописной
+            }
+        }
+        string q(p.rbegin(), p.rend()); //переворачиваем строку
+        return p == q;
+    }
+};
